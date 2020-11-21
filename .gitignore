@@ -4,3 +4,4 @@ data*.csv
 \.ipynb_checkpoints\
 \backups\
 recommender_app.py
+\lib\.ipynb_checkpoints\
