@@ -1,4 +1,4 @@
-import lib.storefront_api
+import lib.storefront_scraping
 
 storefront = storefront_data()
 applist, limit = storefront.get_id_df()

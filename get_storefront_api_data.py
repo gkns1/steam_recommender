@@ -1,7 +1,8 @@
 import lib.storefront_api
 
-storefront = storefront_data()
-applist, limit = storefront.get_id_df()
-df = storefront.load_df(applist)
-df_scraped = storefront.scrape_storefront(df)
-storefront.save_db(df_scraped)
+store_info = store_info()
+applist, limit = store_info.get_applist()
+df = store_info.get_store_info(apps=applist)
+#let's see which fields may be useful for content recommendations based on their contents and data availability.
+df = store_info.clean_dataframe(df=None)
+store_info.join_save(df)
