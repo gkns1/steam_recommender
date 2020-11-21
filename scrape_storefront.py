@@ -1,0 +1,7 @@
+import lib.storefront_api
+
+storefront = storefront_data()
+applist, limit = storefront.get_id_df()
+df = storefront.load_df(applist)
+df_scraped = storefront.scrape_storefront(df)
+storefront.save_db(df_scraped)

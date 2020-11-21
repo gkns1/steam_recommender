@@ -1,0 +1,6 @@
+apikey.txt
+data*.json
+data*.csv
+\.ipynb_checkpoints\
+\backups\
+recommender_app.py
