@@ -114,9 +114,9 @@ class storefront_data():
                     text = requests.get('https://store.steampowered.com/app/{0}'.format(app), cookies=cookies).text
                 soup = BeautifulSoup(text, "html.parser")
                 tags_regexp = re.findall(r'(?<=,"name":")([^"]+)', soup.text)
-                reviews_recent_regexp = re.search(r'(?<=of the )(.)+(?= user reviews for this game are positive.)',
+                reviews_total_regexp = re.search(r'(?<=of the )(.)+(?= user reviews for this game are positive.)',
                                                   soup.text)
-                reviews_total_regexp = re.search(r'(?<=of the )(.)+(?= user reviews in the last 30 days are positive)',
+                reviews_recent_regexp = re.search(r'(?<=of the )(.)+(?= user reviews in the last 30 days are positive)',
                                                  soup.text)
                 reviews_total_positive_regexp = re.search(
                     r'(\d\d)(?=% of the (.)+ user reviews in the last 30 days are positive)', soup.text)
@@ -155,5 +155,16 @@ class storefront_data():
 
         return df
 
+    def clean_db(self, df = None):
+        
+        if df is None:
+            df = pd.read_csv("dataframe_supplement.csv",index_col = 0)
+        
+        df['reviews_total'].fillna(0, inplace=True)
+        df['reviews_recent'].fillna(0, inplace=True)
+        df['reviews_total_positive_percent'].fillna(0, inplace=True)
+        df['reviews_recent_positive_percent'].fillna(0, inplace=True)
+        df['review_summary'].fillna(0, inplace=True)
+    
     def save_db(self, df):
         df.to_csv("dataframe_supplement.csv", header=True)

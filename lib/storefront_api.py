@@ -92,7 +92,7 @@ class store_info():
                     elapsed_total = end_time - start_time
                     print(
                         "Batch {} of {} finished in {:.2f} seconds. All finished in {:.2f} seconds, {} indexes processed!".format(
-                            math.ceil(i / 100), batches_total, elapsed_batch, elapsed_total, i + 1))
+                            math.ceil(i / 198), batches_total, elapsed_batch, elapsed_total, i + 1))
 
                 if appresp is not None:
                     # appinfo.append(appresp[keyid]['data'])
@@ -103,7 +103,6 @@ class store_info():
                 elif appresp is None:
                     # json.dump("{success}: ID %s returned an error!" % app, f ,ensure_ascii=False, indent=4)
                     print("ID %s returned an error!" % app)
-                # the initial export crashed midway after ~10h. A second part took 10h6min. Due to the crash, there likely will be duplicates to clean later.
         f.close()
 
     def clean_dataframe(self, df=None):
