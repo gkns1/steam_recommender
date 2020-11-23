@@ -55,8 +55,6 @@ class store_info():
         else:
             print("apps already generated!")
 
-    # add old db handling
-
     def get_store_info(self, apps, key=None, last_df=None, start_time=time.time(), rebuild=False, test=False):
         appinfo = []
         if key is None:
@@ -129,8 +127,6 @@ class store_info():
                  'genres', 'release_date_date', 'release_date_coming_soon', 'mac_requirements_minimum',
                  'mac_requirements_recommended', 'linux_requirements_minimum',
                  'linux_requirements_recommended', 'metacritic_score', 'reviews', 'recommendations_total']]
-
-        # df.set_index('steam_appid',inplace=True)
 
         print("Filling in empty values...")
         # Requirements are only filled in when there are no minimum or recommended.
