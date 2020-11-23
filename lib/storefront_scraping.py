@@ -168,5 +168,20 @@ class storefront_data():
         
         return df
     
+    def df_cleanup(self, df = None):
+        
+        if df is None:
+            df = pd.read_csv("dataframe_supplement.csv",index_col = 0)
+    
+        cols = ["reviews_total","reviews_recent"]
+        
+        for col in cols:
+            df[col].replace(",","",inplace=True)
+            
+        df["reviews_total_positive_percent"] = df["reviews_total_positive_percent"].astype(int)
+        df["reviews_recent_positive_percent"] = df["reviews_recent_positive_percent"].astype(int)
+        
+        return df
+    
     def save_db(self, df):
         df.to_csv("dataframe_supplement.csv", header=True)
