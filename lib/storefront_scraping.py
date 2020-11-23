@@ -164,7 +164,9 @@ class storefront_data():
         df['reviews_recent'].fillna(0, inplace=True)
         df['reviews_total_positive_percent'].fillna(0, inplace=True)
         df['reviews_recent_positive_percent'].fillna(0, inplace=True)
-        df['review_summary'].fillna(0, inplace=True)
+        df['review_summary'].fillna("None", inplace=True)
+        
+        return df
     
     def save_db(self, df):
         df.to_csv("dataframe_supplement.csv", header=True)
