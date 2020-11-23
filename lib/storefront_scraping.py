@@ -178,8 +178,8 @@ class storefront_data():
         for col in cols:
             df[col].replace(",","",inplace=True)
             
-        df["reviews_total_positive_percent"] = df["reviews_total_positive_percent"].astype(int)
-        df["reviews_recent_positive_percent"] = df["reviews_recent_positive_percent"].astype(int)
+        df["reviews_total_positive_percent"].astype(int,copy=False)
+        df["reviews_recent_positive_percent"].astype(int,copy=False)
         
         return df
     

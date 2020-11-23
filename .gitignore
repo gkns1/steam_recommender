@@ -6,3 +6,4 @@ data*.csv
 recommender_app.py
 \lib\.ipynb_checkpoints\
 \lib\__pycache__\
+gamedata_final.csv
