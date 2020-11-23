@@ -1,14 +1,12 @@
-import pandas as pd
-import requests
-import numpy as np
-import nltk
-import json
-from pandas.io.json import json_normalize
-import time
-from bs4 import BeautifulSoup
+import math
 import re
 import time
-import math
+
+import numpy as np
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+
 
 # data that's needed from the storefront:
 # appid to join with the API call data
