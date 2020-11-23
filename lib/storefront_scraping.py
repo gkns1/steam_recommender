@@ -128,9 +128,9 @@ class storefront_data():
 
                 df.loc[i, 'tags'] = tags_regexp_string
                 if reviews_recent_regexp:
-                    df.loc[i, 'reviews_total'] = reviews_recent_regexp.group(0)
+                    df.loc[i, 'reviews_recent'] = reviews_recent_regexp.group(0)
                 if reviews_total_regexp:
-                    df.loc[i, 'reviews_recent'] = reviews_total_regexp.group(0)
+                    df.loc[i, 'reviews_total'] = reviews_total_regexp.group(0)
                 if reviews_total_positive_regexp:
                     df.loc[i, 'reviews_total_positive_percent'] = reviews_total_positive_regexp.group(0)
                 if reviews_recent_positive_regexp:
@@ -155,7 +155,7 @@ class storefront_data():
 
         return df
 
-    def clean_db(self, df = None):
+    def fill_missing(self, df = None):
         
         if df is None:
             df = pd.read_csv("dataframe_supplement.csv",index_col = 0)
