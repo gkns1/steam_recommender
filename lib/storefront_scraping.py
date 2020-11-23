@@ -149,5 +149,7 @@ class storefront_data():
                 print("Batch {} of {} finished in {:.2f} seconds. All finished in {:.2f} seconds, {} indexes processed, {} updated!".format(math.ceil(i/100),batches_total, elapsed_batch,elapsed_total, i+1, updated))
                 
         return df
-    def save_db(df):
+
+
+    def save_db(self, df):
         df.to_csv("dataframe_supplement.csv", header=True)
