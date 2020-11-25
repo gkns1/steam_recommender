@@ -21,4 +21,4 @@ class final_db():
         if df is None:
             df = self.df_joined
 
-        df.to_csv("gamedata_final.csv", header=True, index_label='index_no')
+        df.to_csv("gamedata_final.csv", header=True, index_label='index_no', escapechar='\\')
