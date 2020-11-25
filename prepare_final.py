@@ -1,5 +1,5 @@
-import lib.final_db
+import lib.final_db as fdb
 
-final_db = final_db()
+final_db = fdb.final_db()
 cleaned = final_db.cleanup()
 final_db.save_db(cleaned)
